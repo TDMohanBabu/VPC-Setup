@@ -1,7 +1,6 @@
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
+FROM nginx:alpine
+
+COPY . /usr/share/nging/html
 RUN npm install --only=production
-COPY . .
-EXPOSE 3000
-CMD ["node" "server.js"]
+Expose 80
+CMD ["nginx", "-g", "daemon off;"]
